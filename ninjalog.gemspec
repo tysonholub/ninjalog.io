@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tyson@tysonholub.com"]
 
   spec.summary       = %q{Cloud based logger for centralized logging}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.description   = %q{ninjalog.io is a secure, open source web service for centralized logging. This gem wraps the ruby logger library to push your log through the ninjalog.io API}
   spec.homepage      = "http://www.ninjalog.io"
   spec.license       = "MIT"
 

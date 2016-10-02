@@ -1,8 +1,8 @@
 # Ninjalog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ninjalog`. To experiment with that code, run `bin/console` for an interactive prompt.
+ninjalog is a secure, open source web service for centralized logging. Checkout [ninjalog.io](http://www.ninjalog.io) to create a free account. This gem wraps the Ruby Logger sending your log data directly to the cloud instead of to disk.
 
-TODO: Delete this and the text above, and describe your gem
+ninjalog.io uses [jwt](http://jwt.io) authentication with rails 5 websockets for live log tailing. Data is persisted via redis and can be downloaded to disk.
 
 ## Installation
 
@@ -22,20 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Create a new NinjaLog::NinjaLogger providing your ninjalog.io email account and generated client_id and client_secret, then use the logger as you would the Ruby Logger class
 
-## Development
+Set your Rails.application logger in any environment file
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```ruby
+Rails.application.configure do
+  config.logger = NinjaLog::NinjaLogger.new(email, client_id, client_secret)
+end
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Or use ninjalog outside a Rails application
+
+```ruby
+require 'ninjalog'
+
+logger = NinjaLog::NinjaLogger(email, client_id, client_secret)
+logger.info('Logging to the cloud. weeee')
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ninjalog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tysonholub/ninjalog. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
