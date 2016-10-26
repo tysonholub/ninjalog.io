@@ -11,7 +11,7 @@ module NinjaLog
   class NinjaLogDev
     def initialize(email, id, secret)
       @headers = { 'Accept' => 'application/json' }
-      response = Unirest.post 'http://www.ninjalog.io/api/v1/auth/token',
+      response = Unirest.post 'https://www.ninjalog.io/api/v1/auth/token',
         headers: @headers,
         parameters: {
           :email => email,
@@ -24,7 +24,7 @@ module NinjaLog
     end
 
     def write(message)
-      Unirest.post 'http://www.ninjalog.io/api/v1/log',
+      Unirest.post 'https://www.ninjalog.io/api/v1/log',
         headers: @headers,
         parameters: {
           :message => message

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Cloud based logger for centralized logging}
   spec.description   = %q{ninjalog.io is a secure, open source web service for centralized logging. This gem wraps the ruby logger library to push your log through the ninjalog.io API}
-  spec.homepage      = "http://www.ninjalog.io"
+  spec.homepage      = "https://www.ninjalog.io"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
