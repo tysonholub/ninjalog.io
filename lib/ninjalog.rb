@@ -1,5 +1,7 @@
 require "ninjalog/version"
 require "logger"
+require "jwt"
+require "unirest"
 
 module NinjaLog
   class NinjaLogger < Logger
